@@ -1,0 +1,40 @@
+# Builds, caches e diagnósticos gerados.
+.dart_tool/
+.flutter-plugins*
+.pub-cache/
+.pub/
+build/
+coverage/
+.firebase/
+tests/firebase/node_modules/
+*.log
+*.class
+*.pyc
+app.*.symbols
+app.*.map.json
+**/doc/api/
+**/ios/Flutter/.last_build_id
+android/.kotlin/
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# Configurações locais de editor e sistema operacional.
+.idea/
+.DS_Store
+Thumbs.db
+*.iml
+*.ipr
+*.iws
+*.swp
+
+# Segredos e assinaturas. Configuração pública do cliente Firebase é versionada.
+.env
+.env.*
+!.env.example
+*service-account*.json
+*serviceAccount*.json
+*-firebase-adminsdk-*.json
+key.properties
+*.jks
+*.keystore

@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    match /users/{uid}/travel_entries/{entryId} {
+      function validImagePath(path) {
+        let parts = path.split('/');
+        return parts.size() == 5 && parts[0] == 'users' && parts[1] == uid
+          && parts[2] == 'travel_entries' && parts[3] == entryId
+          && parts[4].size() <= 200
+          && parts[4].matches('[a-zA-Z0-9][a-zA-Z0-9._-]*[.](jpg|jpeg|png|webp)');
+      }
+
+      function validEntry() {
+        let data = request.resource.data;
+        return data.keys().hasAll(['placeName', 'description', 'imageUrl', 'imagePath', 'location', 'createdAt'])
+          && data.keys().hasOnly(['placeName', 'description', 'imageUrl', 'imagePath', 'imageSource', 'location', 'createdAt'])
+          && data.placeName is string && data.placeName.size() > 0 && data.placeName.size() <= 120
+          && data.placeName.matches('[\\s\\S]*\\S[\\s\\S]*')
+          && data.description is string && data.description.size() > 0 && data.description.size() <= 2000
+          && data.description.matches('[\\s\\S]*\\S[\\s\\S]*')
+          && ((data.get('imageSource', null) == 'local'
+              && data.imageUrl == null && data.imagePath is string && validImagePath(data.imagePath))
+            || (data.get('imageSource', null) == null && data.imageUrl == null && data.imagePath == null)
+            || ((data.get('imageSource', null) == null || data.get('imageSource', null) == 'storage')
+              && data.imageUrl is string && data.imageUrl.matches('https://[^/\\s]+(/[^\\s]*)?')
+              && data.imagePath is string && validImagePath(data.imagePath)))
+          && (data.location == null || data.location is latlng)
+          && data.createdAt is timestamp && data.createdAt == request.time;
+      }
+
+      allow read: if isOwner(uid);
+      allow create: if isOwner(uid) && validEntry();
+      allow delete: if isOwner(uid);
+      allow update: if false;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /users/{uid}/travel_entries/{entryId}/{fileName} {
+      function isOwner() {
+        return request.auth != null && request.auth.uid == uid;
+      }
+      // O aplicativo lê objetos conhecidos; não precisa listar o bucket.
+      allow get: if isOwner();
+      allow create: if isOwner() && resource == null
+        && request.resource.size > 0 && request.resource.size <= 10 * 1024 * 1024
+        && fileName.size() <= 200
+        && fileName.matches('[a-zA-Z0-9][a-zA-Z0-9._-]*[.](jpg|jpeg|png|webp)')
+        && ((fileName.matches('.*[.](jpg|jpeg)') && request.resource.contentType == 'image/jpeg')
+          || (fileName.matches('.*[.]png') && request.resource.contentType == 'image/png')
+          || (fileName.matches('.*[.]webp') && request.resource.contentType == 'image/webp'));
+      // Permite somente a limpeza de uploads sem documento confirmado.
+      allow delete: if isOwner()
+        && !firestore.exists(/databases/(default)/documents/users/$(uid)/travel_entries/$(entryId));
+      allow update, list: if false;
+    }
+  }
+}

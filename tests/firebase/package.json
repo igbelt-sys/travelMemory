@@ -1,0 +1,13 @@
+{
+  "name": "wanderlog-security-tests",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test security.test.mjs" },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.0",
+    "firebase": "^12.0.0"
+  },
+  "overrides": {
+    "@grpc/grpc-js": "^1.13.6"
+  }
+}

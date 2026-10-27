@@ -1,0 +1,41 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "firestore": {
+      "port": 8080
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": false
+    },
+    "singleProjectMode": true
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "travelmemory-5822e",
+          "appId": "1:716842229175:android:1a60e7f025b06a22f39c32",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "travelmemory-5822e",
+          "configurations": {
+            "android": "1:716842229175:android:1a60e7f025b06a22f39c32",
+            "web": "1:716842229175:web:7353c3de6880a323f39c32"
+          }
+        }
+      }
+    }
+  }
+}
