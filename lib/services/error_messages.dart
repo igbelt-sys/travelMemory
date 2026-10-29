@@ -43,14 +43,14 @@ String errorMessage(Object error) {
       'retry-limit-exceeded' =>
         'Não foi possível conectar. Verifique sua internet e tente novamente.',
       'permission-denied' || 'unauthorized' =>
-        'Acesso não autorizado. Confira sua sessão e as regras do Firebase.',
+        'Você não tem acesso a esses dados. Saia da conta e entre novamente.',
       'unauthenticated' ||
       'user-token-expired' => 'Sua sessão expirou. Entre novamente.',
       'operation-not-allowed' =>
-        'O acesso por e-mail e senha ainda não está habilitado.',
+        'O cadastro por e-mail não está disponível agora.',
       'canceled' => 'O envio da foto foi cancelado. Tente novamente.',
       'quota-exceeded' =>
-        'O armazenamento está indisponível no momento. Tente mais tarde.',
+        'O serviço está ocupado no momento. Tente mais tarde.',
       _ => 'Não foi possível concluir. Tente novamente em instantes.',
     };
   }

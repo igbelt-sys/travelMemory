@@ -4,9 +4,7 @@
 .pub-cache/
 .pub/
 build/
-coverage/
 .firebase/
-tests/firebase/node_modules/
 *.log
 *.class
 *.pyc

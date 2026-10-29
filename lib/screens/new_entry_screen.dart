@@ -240,14 +240,14 @@ class _NewEntryScreenState extends State<NewEntryScreen> {
                           ?.copyWith(fontWeight: FontWeight.w700),
                     ),
                     const SizedBox(height: 8),
-                    const Text('Guarde sua história e, se quiser, uma foto.'),
+                    const Text('Conte sobre o lugar. A foto é opcional.'),
                     const SizedBox(height: 24),
                     SwitchListTile.adaptive(
                       key: const ValueKey('includePhoto'),
                       contentPadding: EdgeInsets.zero,
                       title: const Text('Incluir foto'),
                       subtitle: const Text(
-                        'Opcional. A foto fica neste aparelho; a memória e o caminho ficam na sua conta.',
+                        'A foto fica salva neste aparelho.',
                       ),
                       value: _includePhoto,
                       onChanged:
@@ -358,7 +358,7 @@ class _NewEntryScreenState extends State<NewEntryScreen> {
                     ),
                     const SizedBox(height: 8),
                     const Text(
-                      'Coordenadas opcionais. Informe latitude e longitude ou deixe os dois campos vazios.',
+                      'Se souber, informe a latitude e a longitude do lugar.',
                     ),
                     const SizedBox(height: 12),
                     OutlinedButton.icon(

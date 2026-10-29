@@ -33,16 +33,16 @@ class SetupScreen extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(
                   missingConfiguration
-                      ? 'Falta conectar seu diário ao Firebase'
-                      : 'Não foi possível iniciar seu diário',
+                      ? 'O diário ainda não está configurado'
+                      : 'Não foi possível abrir o diário',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 12),
                 Text(
                   missingConfiguration
-                      ? 'A configuração real ainda não foi adicionada. Siga o README do projeto para executar flutterfire configure e habilitar os serviços. Depois, reinicie o aplicativo.'
-                      : 'Confira sua conexão e a configuração do Firebase para esta plataforma. O README contém as instruções de configuração.',
+                      ? 'A configuração está incompleta. Peça ajuda à pessoa que preparou o aplicativo.'
+                      : 'Confira sua conexão com a internet e tente novamente.',
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 24),

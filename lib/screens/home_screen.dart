@@ -258,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               const SizedBox(height: 12),
                               const Text(
-                                'Fotos, histórias e descobertas. Uma memória de cada vez.',
+                                'Guarde os lugares e momentos que marcaram suas viagens.',
                               ),
                               const SizedBox(height: 20),
                               Row(
@@ -288,7 +288,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                         const SizedBox(height: 20),
                                         Text(
-                                          'Seu diário está de malas prontas',
+                                          'Seu diário ainda está vazio',
                                           textAlign: TextAlign.center,
                                           style: Theme.of(
                                             context,
@@ -296,14 +296,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                         const SizedBox(height: 10),
                                         const Text(
-                                          'Conte sobre um lugar especial e, se quiser, guarde uma foto neste aparelho.',
+                                          'Comece contando sobre um lugar que ficou na sua memória. Se quiser, adicione uma foto.',
                                           textAlign: TextAlign.center,
                                         ),
                                         const SizedBox(height: 20),
                                         FilledButton(
                                           onPressed: _addEntry,
                                           child: const Text(
-                                            'Guardar minha primeira memória',
+                                            'Adicionar uma memória',
                                           ),
                                         ),
                                       ],

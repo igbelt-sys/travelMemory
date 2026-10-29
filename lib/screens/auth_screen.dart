@@ -88,15 +88,15 @@ class _AuthScreenState extends State<AuthScreen> {
                     const SizedBox(height: 32),
                     Text(
                       _register
-                          ? 'Sua próxima história começa aqui.'
-                          : 'Cada lugar, uma memória.',
+                          ? 'Crie seu diário de viagens.'
+                          : 'Que bom ter você de volta.',
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: 8),
                     Text(
                       _register
-                          ? 'Crie sua conta para guardar fotos e lembranças só suas.'
-                          : 'Entre para revisitar suas histórias e guardar novas descobertas.',
+                          ? 'Guarde os lugares e momentos que quer lembrar.'
+                          : 'Entre para ver suas memórias e adicionar outras.',
                     ),
                     const SizedBox(height: 28),
                     TextFormField(
@@ -214,7 +214,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: Text(
                         _register
                             ? 'Já tenho conta. Entrar'
-                            : 'Primeira viagem por aqui? Criar conta',
+                            : 'Ainda não tem conta? Criar uma',
                       ),
                     ),
                     const SizedBox(height: 24),
